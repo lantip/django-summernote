@@ -40,7 +40,7 @@ class SummernoteEditor(TemplateView):
 
         self.js = \
             config['base_js'] \
-            + (config['codemirror_js'] if has_codemirror_config() else ()) \
+            #+ (config['codemirror_js'] if has_codemirror_config() else ()) \
             + static_default_js \
             + config['js']
 
