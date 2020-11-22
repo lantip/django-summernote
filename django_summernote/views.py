@@ -31,7 +31,7 @@ class SummernoteEditor(TemplateView):
         super(SummernoteEditor, self).__init__()
 
         static_default_css = tuple(static(x) for x in config['default_css'])
-        static_default_js = tuple(static(x) for x in config['default_js'])
+        static_default_js = list(tuple(static(x) for x in config['default_js']))
         self.css = \
             config['base_css'] \
             + (config['codemirror_css'] if has_codemirror_config() else ()) \
@@ -40,6 +40,7 @@ class SummernoteEditor(TemplateView):
 
         self.js = \
             config['base_js'] \
+            + (config['codemirror_js'] if has_codemirror_config() else ()) \
             + static_default_js \
             + config['js']
 
